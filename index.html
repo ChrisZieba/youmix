@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Bootstrap 101 Template</title>
+
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="mediaelementplayer.css" />
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<h1>Hello, world!</h1>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+		<script src="mediaelement-and-player.js"></script>
+
+<video width="640"  height="360" src="https://www.youtube.com/watch?v=heluk42VdbI"  controls preload> </video>
+		<div id="ytplayer"></div>
+<!-- <video width="640" height="360" id="player">
+		<source type="video/youtube" src="https://www.youtube.com/watch?v=heluk42VdbI" />
+</video> -->
+
+<script>
+
+// Load the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/player_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// Replace the 'ytplayer' element with an <iframe> and
+// YouTube player after the API code downloads.
+var player;
+function onYouTubePlayerAPIReady() {
+  player = new YT.Player('ytplayer', {
+    height: '258',
+    width: '422',
+    videoId: 'heluk42VdbI'
+  });
+}
+
+
+// $('#player').mediaelementplayer({
+// 	success: function(media, node, player) {
+
+//             media.addEventListener('play',function() {
+// 				player.playbackRate = 5.5;
+// 				player.pause();
+// 		        //player.showControls();
+// 		        player.play();
+
+//             }, true);
+
+				
+// 				console.log(node);
+// 	}
+// });
+
+
+	// var player = new MediaElementPlayer('#player', {
+	// 	mode: 'native',
+	// 	success: function(media, node, player) {
+			
+	// 		// var context = new webkitAudioContext();
+	// 		// var gainNode = context.createGainNode();
+	// 		// // Change Gain Value to test
+	// 		// gainNode.gain.value = 1;                   
+	// 		// // Create the effects nodes.
+	// 		// var lowpassFilter = context.createBiquadFilter();
+	// 		// var waveShaper = context.createWaveShaper();
+	// 		// var panner = context.createPanner();
+	// 		// var compressor = context.createDynamicsCompressor();
+	// 		// var reverb = context.createConvolver();
+
+	// 		// var filter = context.createBiquadFilter();
+	// 		// // Change Filter type to test
+	// 		// filter.type = 2;
+	// 		// // Change frequency to test
+	// 		// filter.frequency.value = 5040;
+
+
+	// 		// 	// Our <video> element will be the audio source.
+	// 		// 	var source = context.createMediaElementSource(mediaElement);
+	// 		// 	source.connect(gainNode);
+	// 		// 	gainNode.connect(filter);
+	// 		// 	filter.connect(context.destination);
+
+	// 		// 	mediaElement.playbackRate = 0.6;
+	// 		// 	mediaElement.play();
+
+	// 	}
+	// });
+
+
+
+</script>
+
+
+
+
+		<script>
+
+
+
+
+
+
+
+// // JavaScript object for later use
+// var player = new MediaElementPlayer('#player', {
+// 		// if the <video width> is not specified, this is the default
+// 		defaultVideoWidth: 480,
+// 		// if the <video height> is not specified, this is the default
+// 		defaultVideoHeight: 270,
+// 		// if set, overrides <video width>
+// 		videoWidth: -1,
+// 		// if set, overrides <video height>
+// 		videoHeight: -1,
+// 		// width of audio player
+// 		audioWidth: 400,
+// 		// height of audio player
+// 		audioHeight: 30,
+// 		// initial volume when the player starts
+// 		startVolume: 0.8,
+// 		// useful for <audio> player loops
+// 		loop: false,
+// 		// enables Flash and Silverlight to resize to content size
+// 		enableAutosize: true,
+// 		// the order of controls you want on the control bar (and other plugins below)
+// 		features: ['playpause','progress','current','duration','tracks','volume','fullscreen'],
+// 		// Hide controls when playing and mouse is not over the video
+// 		alwaysShowControls: false,
+// 		// force iPad's native controls
+// 		iPadUseNativeControls: false,
+// 		// force iPhone's native controls
+// 		iPhoneUseNativeControls: false, 
+// 		// force Android's native controls
+// 		AndroidUseNativeControls: false,
+// 		// forces the hour marker (##:00:00)
+// 		alwaysShowHours: false,
+// 		// show framecount in timecode (##:00:00:00)
+// 		showTimecodeFrameCount: false,
+// 		// used when showTimecodeFrameCount is set to true
+// 		framesPerSecond: 25,
+// 		// turns keyboard support on and off for this instance
+// 		enableKeyboard: true,
+// 		// when this player starts, it will pause other players
+// 		pauseOtherPlayers: true,
+// 		// array of keyboard commands
+// 		keyActions: []
+// });
+
+// player.play();
+
+
+// var context = new webkitAudioContext();
+// var gainNode = context.createGainNode();
+// // Change Gain Value to test
+// gainNode.gain.value = 1;                   
+// // Create the effects nodes.
+// var lowpassFilter = context.createBiquadFilter();
+// var waveShaper = context.createWaveShaper();
+// var panner = context.createPanner();
+// var compressor = context.createDynamicsCompressor();
+// var reverb = context.createConvolver();
+
+// var filter = context.createBiquadFilter();
+// // Change Filter type to test
+// filter.type = 2;
+// // Change frequency to test
+// filter.frequency.value = 5040;
+
+// // Wait for window.onload to fire. See crbug.com/112368
+// window.addEventListener('load', function(e) {
+// 	// Our <video> element will be the audio source.
+// 	var source = context.createMediaElementSource(player);
+// 	source.connect(gainNode);
+// 	gainNode.connect(filter);
+// 	filter.connect(context.destination);
+
+// 	player.playbackRate = 0.6;
+// 	player.play();
+// }, false);
+
+
+		</script>
+	</body>
+</html>
