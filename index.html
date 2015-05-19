@@ -34,9 +34,28 @@
     <video width="640" height="360" id="player1" preload="none">
         <source type="video/youtube" src="http://www.youtube.com/watch?v=nOEw9iiopwI" />
     </video>
-    
+
     <script>
-      $('video').mediaelementplayer();
+      var video = $('video').mediaelementplayer();
+
+
+var context = new AudioContext();
+var gainNode = context.createGain();
+gainNode.gain.value = 1;                   // Change Gain Value to test
+filter = context.createBiquadFilter();
+filter.type = 2;                          // Change Filter type to test
+filter.frequency.value = 5040;            // Change frequency to test
+
+// Wait for window.onload to fire. See crbug.com/112368
+window.addEventListener('load', function(e) {
+  // Our <video> element will be the audio source.
+  var source = context.createMediaElementSource($('#player1'));
+  source.connect(gainNode);
+  gainNode.connect(filter);
+  filter.connect(context.destination);
+
+}, false);
+
     </script>
   </body>
 </html>
