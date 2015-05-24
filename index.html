@@ -42,6 +42,18 @@
       //   filter.connect(context.destination);
       // }, false);
 
+    function voiceMute() {
+      if(mute.id == "") {
+        gainNode.gain.value = 0;
+        mute.id = "activated";
+        mute.innerHTML = "Unmute";
+      } else {
+        gainNode.gain.value = 1;
+        mute.id = "";
+        mute.innerHTML = "Mute";
+      }
+    }
+
     </script>
   </body>
 </html>
