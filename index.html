@@ -17,73 +17,33 @@
   </head>
   <body>
 
-    <video width="640" height="360" id="player1" src="sample.mp4" controls></video>
+<audio id="player" controls autoplay>
+  <source src="https://r3---sn-uxa0n-t8gl.googlevideo.com/videoplayback?dur=236.959&lmt=1430936206202173&ip=75.156.55.183&key=yt5&id=o-AMhFrkonaFBLFFSWOjZg0Ej38qiBs8bxEAbjYqTUZyuC&itag=140&sparams=clen%2Cdur%2Cgcr%2Cgir%2Cid%2Cinitcwndbps%2Cip%2Cipbits%2Citag%2Ckeepalive%2Clmt%2Cmime%2Cmm%2Cms%2Cmv%2Cpl%2Crequiressl%2Csource%2Cupn%2Cexpire&upn=BU8gyeMpPsg&mime=audio%2Fmp4&fexp=3300105%2C3300131%2C3300137%2C3311902%2C3312209%2C936120%2C9407537%2C9407663%2C9407730%2C9408142%2C9408593%2C9408710%2C9409208%2C9409227%2C9409294%2C9412774%2C9413369%2C9413503%2C9414845%2C9415304%2C948124%2C952612&pl=21&source=youtube&gir=yes&ipbits=0&initcwndbps=1872500&gcr=ca&keepalive=yes&mm=31&requiressl=yes&expire=2432472570&sver=3&ms=au&clen=3804775&mv=m&mt=1432450886&cpn=ETduD8aqLRtV526u&alr=yes&ratebypass=yes&signature=D3B02C6EF8ED9F95B7D44E7814C742E813AA8F22.7D4E6E7C27ABA3CCE7A18C7A45F54E550324004D&c=WEB&cver=html5" type="video/mp4;codecs=avc1.4d401e">
+
+</audio>
+
+<input type="range" id="weight" min="0.1" value="1" max="1" step="0.1">
+<input type="range" id="weight" min="10" value="10" max="2000" step="100">
 
     <script>
-      // var video = $('video').mediaelementplayer();
+      var audio = document.getElementById('player');
+      console.log(audio)
 
-      // var context = new AudioContext();
-      // var gainNode = context.createGain();
-      // gainNode.gain.value = 1;                   // Change Gain Value to test
-      // filter = context.createBiquadFilter();
-      // filter.type = 2;                          // Change Filter type to test
-      // filter.frequency.value = 5040;            // Change frequency to test
+      var context = new AudioContext();
+      //var oscillator = audioCtx.createOscillator();
+      var gainNode = context.createGain();
+      gainNode.gain.value = 30;                   // Change Gain Value to test
+      filter = context.createBiquadFilter();
+      filter.type = "bandpass";                          // Change Filter type to test
+      filter.frequency.value = 9040;            // Change frequency to test
 
-      // // Wait for window.onload to fire. See crbug.com/112368
-      // window.addEventListener('load', function(e) {
-      //   // Our <video> element will be the audio source.
-      //   var source = context.createMediaElementSource($('#player1'));
-      //   source.connect(gainNode);
-      //   gainNode.connect(filter);
-      //   filter.connect(context.destination);
-      // }, false);
-
-      function voiceMute() {
-        if(mute.id == "") {
-          gainNode.gain.value = 0;
-          mute.id = "activated";
-          mute.innerHTML = "Unmute";
-        } else {
-          gainNode.gain.value = 1;
-          mute.id = "";
-          mute.innerHTML = "Mute";
-        }
-      }
-
-      function draw() {
-
-        drawVisual = requestAnimationFrame(draw);
-
-        analyser.getByteTimeDomainData(dataArray);
-
-        canvasCtx.fillStyle = 'rgb(200, 200, 200)';
-        canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
-
-        canvasCtx.lineWidth = 2;
-        canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
-
-        canvasCtx.beginPath();
-
-        var sliceWidth = WIDTH * 1.0 / bufferLength;
-        var x = 0;
-
-        for(var i = 0; i < bufferLength; i++) {
-     
-          var v = dataArray[i] / 128.0;
-          var y = v * HEIGHT/2;
-
-          if(i === 0) {
-            canvasCtx.moveTo(x, y);
-          } else {
-            canvasCtx.lineTo(x, y);
-          }
-
-          x += sliceWidth;
-        }
-
-        canvasCtx.lineTo(canvas.width, canvas.height/2);
-        canvasCtx.stroke();
-      };
+      window.addEventListener('load', function(e) {
+        var source = context.createMediaElementSource(audio);
+        audio.playbackRate = 0.75;
+        source.connect(gainNode);
+        gainNode.connect(filter);
+        filter.connect(context.destination);
+      }, false);
 
     </script>
   </body>
