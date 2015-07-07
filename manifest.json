@@ -1,11 +1,11 @@
 {
-  "manifest_version": 1,
+  "manifest_version": 2,
+  "name": "youmix",
+  "description": "Inject extra controls into youtube videos for audio mixing",
   "content_scripts": [{
-      "js": ["iframeInjector.js"],
+      "js": ["js/youmix.js"],
       "matches":  ["https://youtube.com/*/*/*"]
   }],
-  "description": "Inject html",
-  "name": "Inject html",
-  "version": "1",
+  "version": "1.0",
   "web_accessible_resources": ["test.html"]
 }
