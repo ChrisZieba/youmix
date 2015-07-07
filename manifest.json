@@ -4,7 +4,7 @@
   "description": "Inject extra controls into youtube videos for audio mixing",
   "content_scripts": [{
       "js": ["js/youmix.js"],
-      "matches":  ["https://youtube.com/*/*/*"]
+      "matches":  ["*://www.youtube.com/*"]
   }],
   "version": "1.0",
   "web_accessible_resources": ["test.html"]
