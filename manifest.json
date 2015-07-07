@@ -1,0 +1,11 @@
+{
+  "manifest_version": 1,
+  "content_scripts": [{
+      "js": ["iframeInjector.js"],
+      "matches":  ["https://youtube.com/*/*/*"]
+  }],
+  "description": "Inject html",
+  "name": "Inject html",
+  "version": "1",
+  "web_accessible_resources": ["test.html"]
+}
