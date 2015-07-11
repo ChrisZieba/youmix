@@ -3,7 +3,7 @@
   "name": "youmix",
   "description": "Inject extra controls into youtube videos for audio mixing",
   "content_scripts": [{
-      "js": ["js/youmix.js"],
+      "js": ["js/jquery.min.js", "js/youmix.js"],
       "matches":  ["*://www.youtube.com/*"]
   }],
   "version": "1.0",
