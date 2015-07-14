@@ -6,23 +6,45 @@ $(document).ready(function() {
   }
 
 
-  var context = new webkitAudioContext();
+  var context = new AudioContext();
+
+  //set up the different audio nodes we will use for the app
+  var analyser = context.createAnalyser();
+  var distortion = context.createWaveShaper();
   var gainNode = context.createGain();
-  gainNode.gain.value = 4;
+  var biquadFilter = context.createBiquadFilter();
+  var convolver = context.createConvolver();
+  var oscillator = context.createOscillator();
 
 
-  filter = context.createBiquadFilter();
-  filter.type = 3;
-  filter.frequency.value = 95;
-  filter.gain.value = 30;
 
   var source = context.createMediaElementSource(player);
   source.connect(gainNode);
+  gainNode.connect(biquadFilter);
+  //distortion.connect(convolver);
+  //convolver.connect(gainNode);
+  //analyser.connect(distortion);
+  
 
-  gainNode.connect(filter);
+
   // connect to output
-  filter.connect(context.destination);
+  biquadFilter.connect(context.destination);
 
-  Under the watch header
-  var watchHeader = $('#watch-header');
+
+// source.connect(analyser);
+// analyser.connect(distortion);
+// distortion.connect(biquadFilter);
+// biquadFilter.connect(convolver);
+// convolver.connect(gainNode);
+// gainNode.connect(context.destination);
+
+  biquadFilter.type = "highpass";
+  biquadFilter.frequency.value = 1000;
+  biquadFilter.gain.value = 666;
+
+
+  $.get(chrome.extension.getURL("templates/body.html"), function(data) {
+    $('#watch-header').after(data);
+  });
+
 });
