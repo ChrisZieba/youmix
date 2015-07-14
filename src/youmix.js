@@ -22,4 +22,7 @@ $(document).ready(function() {
   gainNode.connect(filter);
   // connect to output
   filter.connect(context.destination);
+
+  Under the watch header
+  var watchHeader = $('#watch-header');
 });
