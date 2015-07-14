@@ -7,5 +7,7 @@
       "matches":  ["*://www.youtube.com/*"]
   }],
   "version": "1.0",
-  "web_accessible_resources": ["test.html"]
+  "web_accessible_resources": [
+    "templates/*"
+  ]
 }
