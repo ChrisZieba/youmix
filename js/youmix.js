@@ -31,16 +31,3 @@ $(document).ready(function() {
   // connect to output
   filter.connect(context.destination);
 });
-
-
-
-
-// <div class="ytp-menu-row">
-//  <div class="ytp-menu-cell ytp-menu-title" id="ytp-menu-audio-mode">Mode</div>
-//  <div class="ytp-menu-cell">
-//    <div class="ytp-segmented-control" role="radiogroup" aria-label="Autoplay">
-//      <div class="ytp-button ytp-segmented-control-deselected" role="radio" aria-labelledby="ytp-menu-autoplay" aria-checked="false" tabindex="2050">Off</div>
-//      <div class="ytp-button ytp-segmented-control-other ytp-segmented-control-selected" role="radio" aria-labelledby="ytp-menu-autoplay" aria-checked="true" tabindex="2050">On</div>
-//    </div>
-//  </div>
-// </div>
