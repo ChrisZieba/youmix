@@ -5,6 +5,20 @@ $(document).ready(function() {
     return;
   }
 
+  function makeDistortionCurve(amount) {
+    var k = typeof amount === 'number' ? amount : 50,
+      samples = 44100,
+      curve = new Float32Array(samples),
+      deg = Math.PI / 180,
+      i = 0,
+      x;
+    for ( ; i < samples; ++i ) {
+      x = i * 2 / samples - 1;
+      curve[i] = ( 3 + k ) * x * 20 * deg / ( Math.PI + k * Math.abs(x) );
+    }
+    return curve;
+  }
+
 
   var context = new AudioContext();
 
@@ -15,20 +29,20 @@ $(document).ready(function() {
   var biquadFilter = context.createBiquadFilter();
   var convolver = context.createConvolver();
   var oscillator = context.createOscillator();
-
+  var compressor = audioCtx.createDynamicsCompressor();
 
 
   var source = context.createMediaElementSource(player);
   source.connect(gainNode);
   gainNode.connect(biquadFilter);
-  //distortion.connect(convolver);
-  //convolver.connect(gainNode);
-  //analyser.connect(distortion);
+  biquadFilter.connect(distortion);
+  
+  distortion.connect(analyser);
   
 
 
   // connect to output
-  biquadFilter.connect(context.destination);
+  analyser.connect(context.destination);
 
 
 // source.connect(analyser);
@@ -39,9 +53,11 @@ $(document).ready(function() {
 // gainNode.connect(context.destination);
 
   biquadFilter.type = "highpass";
-  biquadFilter.frequency.value = 1000;
-  biquadFilter.gain.value = 666;
+  biquadFilter.frequency.value = 10000;
+  biquadFilter.gain.value = 68;
 
+  distortion.curve = makeDistortionCurve(560);
+  distortion.oversample = '4x';
 
   $.get(chrome.extension.getURL("templates/body.html"), function(data) {
     $('#watch-header').after(data);
