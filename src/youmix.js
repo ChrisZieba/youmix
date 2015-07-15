@@ -29,7 +29,7 @@ $(document).ready(function() {
   var biquadFilter = context.createBiquadFilter();
   var convolver = context.createConvolver();
   var oscillator = context.createOscillator();
-  var compressor = audioCtx.createDynamicsCompressor();
+  var compressor = context.createDynamicsCompressor();
 
 
   var source = context.createMediaElementSource(player);
@@ -56,11 +56,26 @@ $(document).ready(function() {
   biquadFilter.frequency.value = 10000;
   biquadFilter.gain.value = 68;
 
-  distortion.curve = makeDistortionCurve(560);
-  distortion.oversample = '4x';
+  //distortion.curve = makeDistortionCurve(560);
+  //distortion.oversample = '4x';
 
   $.get(chrome.extension.getURL("templates/body.html"), function(data) {
     $('#watch-header').after(data);
   });
 
+  // Listen for changes to the preset dropdown
+  $("#ym-presets").change(function() {
+    var preset = $(this).val();
+    console.log(preset);
+    presets(preset);
+  });
+
+  function presets(preset) {
+    switch (preset) {
+      case 'hallway':
+        biquadFilter.frequency.value = 1000;
+        biquadFilter.gain.value = 688;
+        break;
+    }
+  }
 });
