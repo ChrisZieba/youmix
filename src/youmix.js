@@ -32,29 +32,8 @@ $(document).ready(function() {
   var compressor = context.createDynamicsCompressor();
 
 
-  var source = context.createMediaElementSource(player);
-  source.connect(gainNode);
-  gainNode.connect(biquadFilter);
-  biquadFilter.connect(distortion);
-  
-  distortion.connect(analyser);
   
 
-
-  // connect to output
-  analyser.connect(context.destination);
-
-
-// source.connect(analyser);
-// analyser.connect(distortion);
-// distortion.connect(biquadFilter);
-// biquadFilter.connect(convolver);
-// convolver.connect(gainNode);
-// gainNode.connect(context.destination);
-
-  biquadFilter.type = "highpass";
-  biquadFilter.frequency.value = 10000;
-  biquadFilter.gain.value = 68;
 
   //distortion.curve = makeDistortionCurve(560);
   //distortion.oversample = '4x';
@@ -72,6 +51,29 @@ $(document).ready(function() {
   function presets(preset) {
     switch (preset) {
       case 'hallway':
+        var source = context.createMediaElementSource(player);
+        source.connect(gainNode);
+        gainNode.connect(biquadFilter);
+        biquadFilter.connect(distortion);
+        
+        distortion.connect(analyser);
+        
+
+
+        // connect to output
+        analyser.connect(context.destination);
+
+
+      // source.connect(analyser);
+      // analyser.connect(distortion);
+      // distortion.connect(biquadFilter);
+      // biquadFilter.connect(convolver);
+      // convolver.connect(gainNode);
+      // gainNode.connect(context.destination);
+
+        biquadFilter.type = "highpass";
+
+
         biquadFilter.frequency.value = 1000;
         biquadFilter.gain.value = 688;
         break;
