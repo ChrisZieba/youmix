@@ -6,3 +6,8 @@ This is a google chrome plugin to add some audio mixing capabilities to youtube 
 
 - More audio node filters
 - Add additional presets
+
+## LICENSE
+
+The MIT License (MIT)
+Copyright (c) 2015 Chris Zieba
