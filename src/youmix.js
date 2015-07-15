@@ -63,8 +63,7 @@ $(document).ready(function() {
     $('#watch-header').after(data);
   });
 
-  // Listen for changes to the preset dropdown
-  $("#ym-presets").change(function() {
+  $('body').on('change', "#ym-presets", function() {
     var preset = $(this).val();
     console.log(preset);
     presets(preset);
