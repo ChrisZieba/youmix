@@ -31,10 +31,6 @@ $(document).ready(function() {
   var oscillator = context.createOscillator();
   var compressor = context.createDynamicsCompressor();
 
-
-  
-
-
   //distortion.curve = makeDistortionCurve(560);
   //distortion.oversample = '4x';
 
