@@ -21,7 +21,8 @@ $(document).ready(function() {
 
 
   var context = new AudioContext();
-  var source = null;
+  var source = context.createMediaElementSource(player);
+  source.connect(context.destination);
 
   //set up the different audio nodes we will use for the app
   var analyser = context.createAnalyser();
@@ -45,28 +46,19 @@ $(document).ready(function() {
   });
 
   function presets(preset) {
-    
+    source.disconnect();
 
     switch (preset) {
       case 'normal':
-        biquadFilter.disconnect();
-        distortion.disconnect();
-        analyser.disconnect();
+        source.connect(context.destination);
         break;
       case 'hallway':
-        setSource();
-        source.connect(gainNode);
-        gainNode.connect(biquadFilter);
-        biquadFilter.connect(distortion);
         
-        distortion.connect(analyser);
-        
-
-        //distortion.curve = makeDistortionCurve(560);
-        //distortion.oversample = '4x';
+        source.connect(biquadFilter);
+        biquadFilter.connect(gainNode);
 
         // connect to output
-        analyser.connect(context.destination);
+        gainNode.connect(context.destination);
 
 
       // source.connect(analyser);
@@ -82,12 +74,6 @@ $(document).ready(function() {
         biquadFilter.frequency.value = 1000;
         biquadFilter.gain.value = 688;
         break;
-    }
-
-    function setSource() {
-      if (!source) {
-        source = context.createMediaElementSource(player);
-      }
     }
   }
 });
