@@ -19,12 +19,11 @@ $(document).ready(function() {
     return curve;
   }
 
-
   var context = new AudioContext();
   var source = context.createMediaElementSource(player);
   source.connect(context.destination);
 
-  //set up the different audio nodes we will use for the app
+  // set up the different audio nodes we will use for the app
   var analyser = context.createAnalyser();
   var distortion = context.createWaveShaper();
   var gainNode = context.createGain();
@@ -32,8 +31,6 @@ $(document).ready(function() {
   var convolver = context.createConvolver();
   var oscillator = context.createOscillator();
   var compressor = context.createDynamicsCompressor();
-
-
 
   $.get(chrome.extension.getURL("templates/body.html"), function(data) {
     $('#watch-header').after(data);
@@ -59,14 +56,6 @@ $(document).ready(function() {
 
         // connect to output
         gainNode.connect(context.destination);
-
-
-      // source.connect(analyser);
-      // analyser.connect(distortion);
-      // distortion.connect(biquadFilter);
-      // biquadFilter.connect(convolver);
-      // convolver.connect(gainNode);
-      // gainNode.connect(context.destination);
 
         biquadFilter.type = "highpass";
 
