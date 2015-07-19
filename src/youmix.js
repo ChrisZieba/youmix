@@ -49,6 +49,8 @@ $(document).ready(function() {
       case 'normal':
         source.connect(context.destination);
         break;
+      case 'underwater':
+
       case 'hallway':
         
         source.connect(biquadFilter);
