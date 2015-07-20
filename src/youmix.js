@@ -50,10 +50,10 @@ $(document).ready(function() {
         source.connect(context.destination);
         break;
       case 'underwater':
-
+      break;
       case 'lowpass':
-
-      case 'compressor'
+      break;
+      case 'compressor':
         // Connect the source node to the destination
         source.connect(compressor);
         compressor.threshold.value = -50;
@@ -62,21 +62,21 @@ $(document).ready(function() {
         compressor.reduction.value = -20;
         compressor.attack.value = 0;
         compressor.release.value = 0.25;
+        // Connect to output
+        gainNode.connect(context.destination);
       break;
 
       case 'hallway':
         
         source.connect(biquadFilter);
         biquadFilter.connect(gainNode);
+        biquadFilter.type = "highpass";
+        biquadFilter.frequency.value = 1000;
+        biquadFilter.gain.value = 688;
 
         // Connect to output
         gainNode.connect(context.destination);
 
-        biquadFilter.type = "highpass";
-
-
-        biquadFilter.frequency.value = 1000;
-        biquadFilter.gain.value = 688;
         break;
     }
   }
