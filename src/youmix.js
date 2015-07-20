@@ -36,10 +36,20 @@ $(document).ready(function() {
     $('#watch-header').after(data);
   });
 
+  // Lsiten for changes to the presets
   $('body').on('change', "#ym-presets", function() {
     var preset = $(this).val();
     console.log(preset);
     presets(preset);
+  });
+
+  // Listen for changes to the options
+  $('body').on('change', "#ym-preset-options input", function() {
+    var node = $(this).data('node');
+    var property = $(this).data('node-property');
+    if (node === 'compressor') {
+      compressor[property].value = $(this).val();
+    }
   });
 
   function presets(preset) {
