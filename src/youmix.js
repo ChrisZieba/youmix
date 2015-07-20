@@ -53,6 +53,13 @@ $(document).ready(function() {
       break;
       case 'lowpass':
       break;
+
+      /*
+        The DynamicsCompressorNode interface provides a compression effect, 
+        which lowers the volume of the loudest parts of the signal in order to 
+        help prevent clipping and distortion that can occur when multiple sounds
+        are played and multiplexed together at once. 
+      */
       case 'compressor':
         // Connect the source node to the destination
         source.connect(compressor);
