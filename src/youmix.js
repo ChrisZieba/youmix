@@ -44,7 +44,7 @@ $(document).ready(function() {
   });
 
   // Listen for changes to the options
-  $('body').on('change', "#ym-preset-options input", function() {
+  $('body').on('change', "#ym-preset-options input[type='range']", function() {
     var node = $(this).data('node');
     var property = $(this).data('node-property');
 
