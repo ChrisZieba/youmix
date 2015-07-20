@@ -51,6 +51,8 @@ $(document).ready(function() {
         break;
       case 'underwater':
 
+      case 'lowpass':
+
       case 'hallway':
         
         source.connect(biquadFilter);
