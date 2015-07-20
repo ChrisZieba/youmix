@@ -47,8 +47,11 @@ $(document).ready(function() {
   $('body').on('change', "#ym-preset-options input", function() {
     var node = $(this).data('node');
     var property = $(this).data('node-property');
-    if (node === 'compressor') {
-      compressor[property].value = $(this).val();
+
+    switch (node) {
+      case 'compressor':
+        compressor[property].value = $(this).val();
+      break;
     }
   });
 
@@ -73,6 +76,8 @@ $(document).ready(function() {
       case 'compressor':
         // Connect the source node to the destination
         source.connect(compressor);
+
+        // These are the default values
         compressor.threshold.value = -50;
         compressor.knee.value = 40;
         compressor.ratio.value = 12;
