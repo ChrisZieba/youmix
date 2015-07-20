@@ -62,8 +62,9 @@ $(document).ready(function() {
         compressor.reduction.value = -20;
         compressor.attack.value = 0;
         compressor.release.value = 0.25;
+
         // Connect to output
-        gainNode.connect(context.destination);
+        compressor.connect(context.destination);
       break;
 
       case 'hallway':
