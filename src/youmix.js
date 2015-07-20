@@ -23,7 +23,7 @@ $(document).ready(function() {
   var source = context.createMediaElementSource(player);
   source.connect(context.destination);
 
-  // set up the different audio nodes we will use for the app
+  // Set up the different audio nodes we will use for the app
   var analyser = context.createAnalyser();
   var distortion = context.createWaveShaper();
   var gainNode = context.createGain();
@@ -69,7 +69,7 @@ $(document).ready(function() {
         source.connect(biquadFilter);
         biquadFilter.connect(gainNode);
 
-        // connect to output
+        // Connect to output
         gainNode.connect(context.destination);
 
         biquadFilter.type = "highpass";
