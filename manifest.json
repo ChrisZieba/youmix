@@ -3,7 +3,11 @@
   "name": "youmix",
   "description": "Inject extra controls into youtube videos for audio mixing",
   "content_scripts": [{
-      "js": ["lib/jquery.min.js", "src/youmix.js"],
+      "js": [
+        "lib/jquery.min.js",
+        "lib/rangeslider.min.js"
+        "src/youmix.js"
+      ],
       "matches":  ["*://www.youtube.com/*"]
   }],
   "version": "0.0.1",
