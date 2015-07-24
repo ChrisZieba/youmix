@@ -9,7 +9,8 @@
         "src/youmix.js"
       ],
       "css": [
-        "lib/rangeslider.css"
+        "lib/rangeslider.css",
+        "src/youmix.css"
       ],
       "matches":  [
         "*://www.youtube.com/*"
