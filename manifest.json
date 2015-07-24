@@ -5,7 +5,7 @@
   "content_scripts": [{
       "js": [
         "lib/jquery.min.js",
-        "lib/rangeslider.min.js"
+        "lib/rangeslider.min.js",
         "src/youmix.js"
       ],
       "matches":  ["*://www.youtube.com/*"]
