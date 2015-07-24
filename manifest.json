@@ -8,7 +8,12 @@
         "lib/rangeslider.min.js",
         "src/youmix.js"
       ],
-      "matches":  ["*://www.youtube.com/*"]
+      "css": [
+        "lib/rangeslider.css"
+      ],
+      "matches":  [
+        "*://www.youtube.com/*"
+      ]
   }],
   "version": "0.0.1",
   "web_accessible_resources": [
