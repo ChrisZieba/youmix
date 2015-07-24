@@ -6,11 +6,40 @@
     <option value="normal">Normal</option>
     <option value="biquadfilter">Biquad Filter</option>
     <option value="compressor">Compressor</option>
-    <option value="8bit">8-bit</option>
+    <option value="oscillator">Oscillator</option>
   </select>
 
   <div id="ym-preset-options">
-    <div class="ym-node-group" data-node-group="biquadfilterlowpass">
+
+    <div class="ym-node-group" data-node-group="oscillator">
+      <div class="ym-property-group">
+        <label>Frequency</label>
+        <input type="range" min="10" max="5000" value="350" step="10" data-node="oscillator" data-node-property="frequency" />
+      </div>
+
+      <div class="ym-property-group">
+        <label>Detune</label>
+        <input type="range" min="0" max="100" value="100" step="1" data-node="oscillator" data-node-property="detune" />
+      </div>
+
+      <div class="ym-property-group">
+        <label>Q</label>
+        <input type="range" min="0.0001" max="1000" value="-50" step="1" data-node="oscillator" data-node-property="Q" />
+      </div>
+
+      <div class="ym-property-group">
+        <label>Type</label>
+        <select data-node="oscillator" data-node-property="type">
+          <option value="sine">Sine</option>
+          <option value="square">Sqaure</option>
+          <option value="sawtooth">Sawtooth</option>
+          <option value="triangle">Triangle</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="ym-node-group" data-node-group="biquadfilter">
       <div class="ym-property-group">
         <label>Frequency</label>
         <input type="range" min="10" max="5000" value="350" step="10" data-node="biquadfilter" data-node-property="frequency" />
@@ -31,6 +60,12 @@
         <select data-node="biquadfilter" data-node-property="type">
           <option value="lowpass">Lowpass</option>
           <option value="highpass">Highpass</option>
+          <option value="bandpass">Bandpass</option>
+          <option value="lowshelf">Lowshelf</option>
+          <option value="highshelf">Highshelf</option>
+          <option value="peaking">Peaking</option>
+          <option value="notch">Notch</option>
+          <option value="allpass">Allpass</option>
         </select>
       </div>
     </div>

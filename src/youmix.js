@@ -53,6 +53,7 @@ $(document).ready(function() {
 
   // Listen for changes to the options
   $('body').on('change', "#ym-preset-options input[type='range'], #ym-preset-options select", function() {
+    var value = $(this).val();
     var node = $(this).data('node');
     var property = $(this).data('node-property');
 
@@ -61,12 +62,17 @@ $(document).ready(function() {
         if (property === 'type') {
           biquadFilter.type = $(this).val()
         } else {
-          biquadFilter[property].value = $(this).val();
+          biquadFilter[property].value = value;
         }
         
         break;
+
       case 'compressor':
-        compressor[property].value = $(this).val();
+        compressor[property].value = value;
+        break;
+
+      case 'oscillator':
+        oscillator[property].value = value;
         break;
     }
   });
@@ -116,13 +122,14 @@ $(document).ready(function() {
         compressor.connect(context.destination);
         break;
 
-      case 'hallway':
+      case 'oscillator':
         
-        source.connect(biquadFilter);
-        biquadFilter.connect(gainNode);
-        biquadFilter.type = "highpass";
-        biquadFilter.frequency.value = 1000;
-        biquadFilter.gain.value = 688;
+        source.connect(oscillator);
+        oscillator.connect(gainNode);
+        oscillator.type = 'sine';
+        
+        // Value in hertz
+        oscillator.frequency.value = 3000;
 
         // Connect to output
         gainNode.connect(context.destination);
