@@ -41,34 +41,33 @@ $(document).ready(function() {
       polyfill: false,
       rangeClass: 'rangeslider',
       fillClass: 'rangeslider__fill',
-      handleClass: 'rangeslider__handle',
-
-      onInit: function() {},
-
-      // Callback function
-      onSlide: function(position, value) {},
-
-      // Callback function
-      onSlideEnd: function(position, value) {}
+      handleClass: 'rangeslider__handle'
     });
   });
 
   // Lsiten for changes to the presets
   $('body').on('change', "#ym-presets", function() {
     var preset = $(this).val();
-    console.log(preset);
     presets(preset);
   });
 
   // Listen for changes to the options
-  $('body').on('change', "#ym-preset-options input[type='range']", function() {
+  $('body').on('change', "#ym-preset-options input[type='range'], #ym-preset-options select", function() {
     var node = $(this).data('node');
     var property = $(this).data('node-property');
 
     switch (node) {
+      case 'biquadfilter':
+        if (property === 'type') {
+          biquadFilter.type = $(this).val()
+        } else {
+          biquadFilter[property].value = $(this).val();
+        }
+        
+        break;
       case 'compressor':
         compressor[property].value = $(this).val();
-      break;
+        break;
     }
   });
 
@@ -81,12 +80,19 @@ $(document).ready(function() {
         break;
 
       /* 
-        The BiquadFilterNode interface represents a simple low-order filter.
+        The BiquadFilterNode interface represents a simple low-order filter. 
       */
       case 'biquadfilter':
-      break;
-      case 'lowpass':
-      break;
+        source.connect(biquadFilter);
+        biquadFilter.connect(gainNode);
+        biquadFilter.type = "lowpass";
+        biquadFilter.frequency.value = 350;
+        biquadFilter.detune.value = 100;
+        biquadFilter.Q.value = 100;
+
+        // Connect to output
+        gainNode.connect(context.destination);
+        break;
 
       /*
         The DynamicsCompressorNode interface provides a compression effect, 
@@ -108,7 +114,7 @@ $(document).ready(function() {
 
         // Connect to output
         compressor.connect(context.destination);
-      break;
+        break;
 
       case 'hallway':
         
