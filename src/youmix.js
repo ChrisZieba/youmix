@@ -33,7 +33,7 @@ $(document).ready(function() {
   var compressor = context.createDynamicsCompressor();
 
 
-  $.get(chrome.extension.getURL("templates/body.html"), function(data) {
+  $.get(chrome.extension.getURL("src/youmix.html"), function(data) {
     $('#watch-header').after(data);
 
     // Add the range slider
@@ -79,7 +79,11 @@ $(document).ready(function() {
       case 'normal':
         source.connect(context.destination);
         break;
-      case 'underwater':
+
+      /* 
+        The BiquadFilterNode interface represents a simple low-order filter.
+      */
+      case 'biquadfilter':
       break;
       case 'lowpass':
       break;

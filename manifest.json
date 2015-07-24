@@ -18,6 +18,6 @@
   }],
   "version": "0.0.1",
   "web_accessible_resources": [
-    "templates/*"
+    "src/youmix.html"
   ]
 }
