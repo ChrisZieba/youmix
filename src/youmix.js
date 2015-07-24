@@ -32,11 +32,25 @@ $(document).ready(function() {
   var oscillator = context.createOscillator();
   var compressor = context.createDynamicsCompressor();
 
-  // Add the randle slider
-  $('input[type="range"]').rangeslider();
-  
+
   $.get(chrome.extension.getURL("templates/body.html"), function(data) {
     $('#watch-header').after(data);
+
+    // Add the range slider
+    $('input[type="range"]').rangeslider({
+      polyfill: false,
+      rangeClass: 'rangeslider',
+      fillClass: 'rangeslider__fill',
+      handleClass: 'rangeslider__handle',
+
+      onInit: function() {},
+
+      // Callback function
+      onSlide: function(position, value) {},
+
+      // Callback function
+      onSlideEnd: function(position, value) {}
+    });
   });
 
   // Lsiten for changes to the presets
