@@ -4,22 +4,51 @@
   <label>Presets</label>
   <select id="ym-presets">
     <option value="normal">Normal</option>
-    <option value="biquadfilter">Biquad Filter</option>
+    <option value="biquadfilterlowpass">Biquad Filter (lowpass)</option>
+    <option value="biquadfilterhighpass">Biquad Filter (highpass)</option>
     <option value="compressor">Compressor</option>
     <option value="8bit">8-bit</option>
   </select>
 
   <div id="ym-preset-options">
+    <div class="ym-node-group" data-node-group="biquadfilterlowpass">
+      <div class="ym-property-group">
+        <label>Frequency</label>
+        <input type="range" min="10" max="5000" value="350" step="10" data-node="biquadfilterlowpass" data-node-property="frequency" />
+      </div>
 
-    <div class="ym-node-group" data-node-group="biquadfilter">
-      <label>Threshold</label>
-      <input type="range" min="-100" max="0" value="-50" step="1" data-node="biquad" data-node-property="threshold" />
+      <div class="ym-property-group">
+        <label>Detune</label>
+        <input type="range" min="0" max="100" value="100" step="1" data-node="biquadfilterlowpass" data-node-property="detune" />
+      </div>
+
+      <div class="ym-property-group">
+        <label>Q</label>
+        <input type="range" min="0.0001" max="1000" value="-50" step="1" data-node="biquadfilterlowpass" data-node-property="Q" />
+      </div>
+    </div>
+
+    <div class="ym-node-group" data-node-group="biquadfilterhighpass">
+      <div class="ym-property-group">
+        <label>Frequency</label>
+        <input type="range" min="10" max="5000" value="350" step="10" data-node="biquadfilterhighpass" data-node-property="frequency" />
+      </div>
+
+      <div class="ym-property-group">
+        <label>Detune</label>
+        <input type="range" min="0" max="100" value="100" step="1" data-node="biquadfilterhighpass" data-node-property="detune" />
+      </div>
+
+      <div class="ym-property-group">
+        <label>Q</label>
+        <input type="range" min="0.0001" max="1000" value="-50" step="1" data-node="biquadfilterhighpass" data-node-property="Q" />
+      </div>
     </div>
 
     <div class="ym-node-group" data-node-group="compressor">
       <div class="ym-property-group">
         <label>Threshold</label>
-        <input type="range" min="-100" max="0" value="-50" step="1" data-node="compressor" data-node-property="threshold" />
+        <input type="range" min="10" max="1000" value="350" step="1" data-node="compressor" data-node-property="threshold" />
       </div>
 
       <div class="ym-property-group">
