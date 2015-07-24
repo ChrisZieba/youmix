@@ -11,29 +11,41 @@
 
   <div id="ym-preset-options">
 
-    <div>
+    <div class="ym-node-group" data-node-group="biquad">
       <label>Threshold</label>
       <input type="range" min="-100" max="0" value="-50" step="1" data-node="biquad" data-node-property="threshold" />
     </div>
 
-    <div>
-      <label>Threshold</label>
-      <input type="range" min="-100" max="0" value="-50" step="1" data-node="compressor" data-node-property="threshold" />
+    <div class="ym-node-group" data-node-group="compressor">
+      <div class="ym-property-group">
+        <label>Threshold</label>
+        <input type="range" min="-100" max="0" value="-50" step="1" data-node="compressor" data-node-property="threshold" />
+      </div>
 
-      <label>Knee</label>
-      <input type="range" min="0" max="40" value="40" step="1" data-node="compressor" data-node-property="knee" />
+      <div class="ym-property-group">
+        <label>Knee</label>
+        <input type="range" min="0" max="40" value="40" step="1" data-node="compressor" data-node-property="knee" />
 
-      <label>Ratio</label>
-      <input type="range" min="1" max="20" value="12" step="1" data-node="compressor" data-node-property="ratio" />
+      <div class="ym-property-group">
+        <label>Ratio</label>
+        <input type="range" min="1" max="20" value="12" step="1" data-node="compressor" data-node-property="ratio" />
 
-      <label>Reduction</label>
-      <input type="range" min="-20" max="0" value="-20" step="1" data-node="compressor" data-node-property="reduction" />
+      </div>
 
-      <label>Attack</label>
-      <input type="range" min="0" max="1" value="0" step="0.01" data-node="compressor" data-node-property="attack" />
+      <div class="ym-property-group">
+        <label>Reduction</label>
+        <input type="range" min="-20" max="0" value="-20" step="1" data-node="compressor" data-node-property="reduction" />
+      </div>
 
-      <label>Release</label>
-      <input type="range" min="0" max="1" value="0.25" step="0.01" data-node="compressor" data-node-property="release" />
+      <div class="ym-property-group">
+        <label>Attack</label>
+        <input type="range" min="0" max="1" value="0" step="0.01" data-node="compressor" data-node-property="attack" />
+      </div>
+
+      <div class="ym-property-group">
+        <label>Release</label>
+        <input type="range" min="0" max="1" value="0.25" step="0.01" data-node="compressor" data-node-property="release" />
+      </div>
     </div>
   </div>
   
