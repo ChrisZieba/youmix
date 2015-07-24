@@ -32,6 +32,9 @@ $(document).ready(function() {
   var oscillator = context.createOscillator();
   var compressor = context.createDynamicsCompressor();
 
+  // Add the randle slider
+  $('input[type="range"]').rangeslider();
+  
   $.get(chrome.extension.getURL("templates/body.html"), function(data) {
     $('#watch-header').after(data);
   });
