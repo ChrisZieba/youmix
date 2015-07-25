@@ -6,16 +6,17 @@ $(document).ready(function() {
   }
 
   function makeDistortionCurve(amount) {
-    var k = typeof amount === 'number' ? amount : 50,
-      samples = 44100,
-      curve = new Float32Array(samples),
-      deg = Math.PI / 180,
-      i = 0,
-      x;
-    for ( ; i < samples; ++i ) {
+    var k = typeof amount === 'number' ? amount : 50;
+    var samples = 44100;
+    var curve = new Float32Array(samples);
+    var deg = Math.PI / 180;
+    var x;
+
+    for (var i = 0; i < samples; i+=1) {
       x = i * 2 / samples - 1;
-      curve[i] = ( 3 + k ) * x * 20 * deg / ( Math.PI + k * Math.abs(x) );
+      curve[i] = (4 + k) * x * 50 * deg / (Math.PI + k * Math.abs(x));
     }
+
     return curve;
   }
 
@@ -74,6 +75,15 @@ $(document).ready(function() {
       case 'oscillator':
         oscillator[property].value = value;
         break;
+
+      case 'distortion':
+        console.log(property, value)
+        if (property === 'amount') {
+          distortion.curve = makeDistortionCurve(value);
+        } else if (property === 'oversample') {
+          distortion.oversample = value;
+        }
+        break;
     }
   });
 
@@ -125,15 +135,32 @@ $(document).ready(function() {
       case 'oscillator':
         
         source.connect(oscillator);
-        oscillator.connect(gainNode);
         oscillator.type = 'sine';
-        
+
         // Value in hertz
-        oscillator.frequency.value = 3000;
+        oscillator.frequency.value = 2;
+        //oscillator.start();
 
         // Connect to output
-        gainNode.connect(context.destination);
+        oscillator.connect(context.destination);
 
+        oscillator.start();
+
+        break;
+
+      /*
+        The WaveShaperNode interface represents a non-linear distorter.
+      */
+      case 'distortion':
+        // Connect the source node to the destination
+        source.connect(distortion);
+
+        // These are the default values
+        distortion.oversample = 'none';
+        distortion.curve = makeDistortionCurve(30);
+
+        // Connect to output
+        distortion.connect(context.destination);
         break;
     }
   }

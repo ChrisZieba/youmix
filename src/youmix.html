@@ -7,9 +7,26 @@
     <option value="biquadfilter">Biquad Filter</option>
     <option value="compressor">Compressor</option>
     <option value="oscillator">Oscillator</option>
+    <option value="distortion">Distortion</option>
   </select>
 
   <div id="ym-preset-options">
+
+    <div class="ym-node-group" data-node-group="distortion">
+      <div class="ym-property-group">
+        <label>Amount</label>
+        <input type="range" min="0" max="500" value="30" step="1" data-node="distortion" data-node-property="amount" />
+      </div>
+
+      <div class="ym-property-group">
+        <label>Oversample</label>
+        <select data-node="distortion" data-node-property="oversample">
+          <option value="none">none</option>
+          <option value="2x">2x</option>
+          <option value="4x">4x</option>
+        </select>
+      </div>
+    </div>
 
     <div class="ym-node-group" data-node-group="oscillator">
       <div class="ym-property-group">
