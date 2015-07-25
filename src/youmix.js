@@ -5,6 +5,11 @@ $(document).ready(function() {
     return;
   }
 
+  /* 
+    Distortion curves are not the easiest thing to work out, and you will 
+    probably need to look around to find such algorithms. We found the below 
+    distortion curve code on Stack Overflow.
+    */
   function makeDistortionCurve(amount) {
     var k = typeof amount === 'number' ? amount : 50;
     var samples = 44100;
