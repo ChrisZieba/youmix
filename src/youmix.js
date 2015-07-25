@@ -51,7 +51,7 @@ $(document).ready(function() {
     });
   });
 
-  // Lsiten for changes to the presets
+  // Listen for changes to the presets
   $('body').on('change', "#ym-presets", function() {
     var preset = $(this).val();
     presets(preset);
