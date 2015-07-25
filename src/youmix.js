@@ -14,7 +14,7 @@ $(document).ready(function() {
 
     for (var i = 0; i < samples; i+=1) {
       x = i * 2 / samples - 1;
-      curve[i] = (4 + k) * x * 50 * deg / (Math.PI + k * Math.abs(x));
+      curve[i] = (3 + k) * x * 60 * deg / (Math.PI + k * Math.abs(x));
     }
 
     return curve;
@@ -100,14 +100,13 @@ $(document).ready(function() {
       */
       case 'biquadfilter':
         source.connect(biquadFilter);
-        biquadFilter.connect(gainNode);
         biquadFilter.type = "lowpass";
-        biquadFilter.frequency.value = 350;
+        biquadFilter.frequency.value = 50;
         biquadFilter.detune.value = 100;
         biquadFilter.Q.value = 100;
 
         // Connect to output
-        gainNode.connect(context.destination);
+        biquadFilter.connect(context.destination);
         break;
 
       /*
@@ -161,6 +160,16 @@ $(document).ready(function() {
 
         // Connect to output
         distortion.connect(context.destination);
+        break;
+
+      case 'convolver':
+        // Connect the source node to the destination
+        //source.connect(distortion);
+        convolver.normalize = false;
+        convolver.buffer = 
+
+        // Connect to output
+        //distortion.connect(context.destination);
         break;
     }
   }

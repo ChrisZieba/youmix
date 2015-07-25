@@ -8,14 +8,17 @@
     <option value="compressor">Compressor</option>
     <option value="oscillator">Oscillator</option>
     <option value="distortion">Distortion</option>
+    <option value="distortion">Convolver</option>
   </select>
 
   <div id="ym-preset-options">
 
+
+
     <div class="ym-node-group" data-node-group="distortion">
       <div class="ym-property-group">
         <label>Amount</label>
-        <input type="range" min="0" max="500" value="30" step="1" data-node="distortion" data-node-property="amount" />
+        <input type="range" min="0" max="1000" value="30" step="1" data-node="distortion" data-node-property="amount" />
       </div>
 
       <div class="ym-property-group">
@@ -59,7 +62,7 @@
     <div class="ym-node-group" data-node-group="biquadfilter">
       <div class="ym-property-group">
         <label>Frequency</label>
-        <input type="range" min="10" max="5000" value="350" step="10" data-node="biquadfilter" data-node-property="frequency" />
+        <input type="range" min="10" max="5000" value="50" step="10" data-node="biquadfilter" data-node-property="frequency" />
       </div>
 
       <div class="ym-property-group">
