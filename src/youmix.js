@@ -161,16 +161,6 @@ $(document).ready(function() {
         // Connect to output
         distortion.connect(context.destination);
         break;
-
-      case 'convolver':
-        // Connect the source node to the destination
-        //source.connect(distortion);
-        convolver.normalize = false;
-        convolver.buffer = 
-
-        // Connect to output
-        //distortion.connect(context.destination);
-        break;
     }
   }
 });
