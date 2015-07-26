@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var player = $("video.html5-main-video")[0];
 
+  // Nothing to do if the youtube player does not exist
   if (!player) {
     return;
   }
