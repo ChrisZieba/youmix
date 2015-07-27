@@ -55,6 +55,16 @@ $(document).ready(function() {
   // Listen for changes to the presets
   $('body').on('change', "#ym-presets", function() {
     var preset = $(this).val();
+
+    // Hide all the options
+    $('.ym-node-group').hide();
+
+    // Show the set of options matching the preset selected
+    if (preset !== 'normal') {
+      $("div[data-node-group='" + preset +"']").show();
+    }
+
+    // Load the filter
     presets(preset);
   });
 
