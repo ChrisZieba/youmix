@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     for (var i = 0; i < samples; i+=1) {
       x = i * 2 / samples - 1;
-      curve[i] = (3 + k) * x * 60 * deg / (Math.PI + k * Math.abs(x));
+      curve[i] = (3 + k) * x * 50 * deg / (Math.PI + k * Math.abs(x));
     }
 
     return curve;
