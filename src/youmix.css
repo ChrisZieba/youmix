@@ -9,8 +9,13 @@
   display: none;
 }
 
+.ym-preset-options {
+  padding: 10px;
+  background: #f0f0f0;
+  border: 1px solid #f8f8f8;
+}
+
 .ym-property-group {
   display: inline-block;
   width: 45%;
-  padding: 10px;
 }
