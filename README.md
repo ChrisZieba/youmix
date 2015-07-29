@@ -1,6 +1,6 @@
 # YouMix
 
-This is a google chrome plugin to add some audio mixing capabilities to youtube videos. Why? I listen to a lot of music in YouTube and every now and then I wonder what certain songs would sound like with audio filters applied. 
+This is a Google chrome extension to add audio filters to youtube videos. **Why?** I listen to a lot of music through YouTube, and every now and then I wonder what certain songs would sound like with certain filters applied. It's a fun extenstion if you're interested in getting a different perpective from a song.
 
 ## Screenshots
 
@@ -13,7 +13,8 @@ This is a google chrome plugin to add some audio mixing capabilities to youtube 
 ## TODO
 
 - More audio node filters
-- Add additional presets
+- Add node chaining
+- So much!
 
 ## LICENSE
 
