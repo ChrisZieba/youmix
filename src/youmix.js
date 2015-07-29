@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // Only works if the video player has the needed HTML5 class
   var player = $("video.html5-main-video")[0];
 
   // Nothing to do if the youtube player does not exist
@@ -18,7 +19,6 @@ $(document).ready(function() {
   var convolver = context.createConvolver();
   var oscillator = context.createOscillator();
   var compressor = context.createDynamicsCompressor();
-
 
   $.get(chrome.extension.getURL("src/youmix.html"), function(data) {
     $('#watch-header').after(data);
@@ -128,7 +128,6 @@ $(document).ready(function() {
         break;
 
       case 'oscillator':
-        
         source.connect(oscillator);
         oscillator.type = 'sine';
 
