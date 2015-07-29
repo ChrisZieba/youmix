@@ -130,7 +130,7 @@ $(document).ready(function() {
         compressor.knee.value = 40;
         compressor.ratio.value = 12;
         compressor.reduction.value = -20;
-        compressor.attack.value = 0;
+        compressor.attack.value = 0.003;
         compressor.release.value = 0.25;
 
         // Connect to output
