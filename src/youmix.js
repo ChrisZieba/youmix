@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  'use strict';
+
   // Only works if the video player has the needed HTML5 class
   var player = $("video.html5-main-video")[0];
 
