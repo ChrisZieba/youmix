@@ -6,26 +6,6 @@ $(document).ready(function() {
     return;
   }
 
-  /* 
-    Distortion curves are not the easiest thing to work out, and you will 
-    probably need to look around to find such algorithms. We found the below 
-    distortion curve code on Stack Overflow.
-    */
-  function makeDistortionCurve(amount) {
-    var k = typeof amount === 'number' ? amount : 50;
-    var samples = 44100;
-    var curve = new Float32Array(samples);
-    var deg = Math.PI / 180;
-    var x;
-
-    for (var i = 0; i < samples; i+=1) {
-      x = i * 2 / samples - 1;
-      curve[i] = (3 + k) * x * 50 * deg / (Math.PI + k * Math.abs(x));
-    }
-
-    return curve;
-  }
-
   var context = new AudioContext();
   var source = context.createMediaElementSource(player);
   source.connect(context.destination);
@@ -93,8 +73,8 @@ $(document).ready(function() {
         break;
 
       case 'distortion':
-        console.log(property, value)
         if (property === 'amount') {
+          value = parseInt(value, 10);
           distortion.curve = makeDistortionCurve(value);
         } else if (property === 'oversample') {
           distortion.oversample = value;
@@ -172,11 +152,31 @@ $(document).ready(function() {
 
         // These are the default values
         distortion.oversample = 'none';
-        distortion.curve = makeDistortionCurve(30);
+        distortion.curve = makeDistortionCurve(50);
 
         // Connect to output
         distortion.connect(context.destination);
         break;
     }
+  }
+
+  /* 
+    Distortion curves are not the easiest thing to work out, and you will 
+    probably need to look around to find such algorithms. We found the below 
+    distortion curve code on Stack Overflow.
+  */
+  function makeDistortionCurve(amount) {
+    var k = typeof amount === 'number' ? amount : 50;
+    var samples = 44100;
+    var curve = new Float32Array(samples);
+    var deg = Math.PI / 180;
+    var x;
+
+    for (var i = 0; i < samples; i+=1) {
+      x = i * 2 / samples - 1;
+      curve[i] = k * x * 60 * deg / (Math.PI + k * Math.abs(x));
+    }
+
+    return curve;
   }
 });

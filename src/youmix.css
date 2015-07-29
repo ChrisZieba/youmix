@@ -1,9 +1,16 @@
+.ym-title, .ym-title a {
+  background-color: #FFF;
+  color: #666;
+  text-transform: uppercase;
+  margin: 0 0 15px 0;
+}
+
 .ym-node-group {
-	display: none;
+  display: none;
 }
 
 .ym-property-group {
-	display: inline-block;
-	width: 45%;
-	padding: 10px;
+  display: inline-block;
+  width: 45%;
+  padding: 10px;
 }
