@@ -4,7 +4,7 @@
  *
  * Author: Chris Zieba (zieba.chris@gmail.com)
  */
- 
+
 $(document).ready(function() {
   'use strict';
 
@@ -29,6 +29,7 @@ $(document).ready(function() {
   var oscillator = context.createOscillator();
   var compressor = context.createDynamicsCompressor();
 
+  // Load the template from source
   $.get(chrome.extension.getURL("src/youmix.html"), function(data) {
     $('#watch-header').after(data);
 
