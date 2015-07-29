@@ -99,7 +99,7 @@ $(document).ready(function() {
         biquadFilter.type = "lowpass";
         biquadFilter.frequency.value = 50;
         biquadFilter.detune.value = 100;
-        biquadFilter.Q.value = 100;
+        biquadFilter.Q.value = 10;
 
         // Connect to output
         biquadFilter.connect(context.destination);
