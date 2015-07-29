@@ -49,7 +49,7 @@ $(document).ready(function() {
   });
 
   // Listen for changes to the options
-  $('body').on('change', "#ym-preset-options input[type='range'], #ym-preset-options select", function() {
+  $('body').on('change', ".ym-node-group input[type='range'], .ym-node-group select", function() {
     var value = $(this).val();
     var node = $(this).data('node');
     var property = $(this).data('node-property');

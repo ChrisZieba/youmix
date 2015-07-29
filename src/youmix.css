@@ -9,13 +9,17 @@
   display: none;
 }
 
-.ym-preset-options {
-  padding: 10px;
-  background: #f0f0f0;
-  border: 1px solid #f8f8f8;
-}
-
 .ym-property-group {
   display: inline-block;
   width: 45%;
+  padding: 10px;
+  margin: 8px 4px 8px 0;
+  background: #f7f7f7;
+  border: 1px solid #e3e3e3;
+}
+
+.ym-property-group label {
+  font-size: 90%;
+  display: block;
+  margin: 0 0 8px 0;
 }

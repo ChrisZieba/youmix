@@ -10,115 +10,113 @@
     <option value="distortion">Distortion</option>
   </select>
 
-  <div class="ym-preset-options">
-    <div class="ym-node-group" data-node-group="distortion">
-      <div class="ym-property-group">
-        <label>Amount</label>
-        <input type="range" min="1" max="10000" value="50" step="10" data-node="distortion" data-node-property="amount" />
-      </div>
-
-      <div class="ym-property-group">
-        <label>Oversample</label>
-        <select data-node="distortion" data-node-property="oversample">
-          <option value="none">none</option>
-          <option value="2x">2x</option>
-          <option value="4x">4x</option>
-        </select>
-      </div>
+  <div class="ym-node-group" data-node-group="distortion">
+    <div class="ym-property-group">
+      <label>Amount</label>
+      <input type="range" min="1" max="10000" value="50" step="10" data-node="distortion" data-node-property="amount" />
     </div>
 
-    <div class="ym-node-group" data-node-group="oscillator">
-      <div class="ym-property-group">
-        <label>Frequency</label>
-        <input type="range" min="10" max="5000" value="350" step="10" data-node="oscillator" data-node-property="frequency" />
-      </div>
-
-      <div class="ym-property-group">
-        <label>Detune</label>
-        <input type="range" min="0" max="100" value="100" step="1" data-node="oscillator" data-node-property="detune" />
-      </div>
-
-      <div class="ym-property-group">
-        <label>Q</label>
-        <input type="range" min="0.0001" max="1000" value="-50" step="1" data-node="oscillator" data-node-property="Q" />
-      </div>
-
-      <div class="ym-property-group">
-        <label>Type</label>
-        <select data-node="oscillator" data-node-property="type">
-          <option value="sine">Sine</option>
-          <option value="square">Sqaure</option>
-          <option value="sawtooth">Sawtooth</option>
-          <option value="triangle">Triangle</option>
-        </select>
-      </div>
-    </div>
-
-
-    <div class="ym-node-group" data-node-group="biquadfilter">
-      <div class="ym-property-group">
-        <label>Frequency</label>
-        <input type="range" min="10" max="5000" value="50" step="10" data-node="biquadfilter" data-node-property="frequency" />
-      </div>
-
-      <div class="ym-property-group">
-        <label>Detune</label>
-        <input type="range" min="0" max="100" value="100" step="1" data-node="biquadfilter" data-node-property="detune" />
-      </div>
-
-      <div class="ym-property-group">
-        <label>Q</label>
-        <input type="range" min="0.0001" max="1000" value="-50" step="1" data-node="biquadfilter" data-node-property="Q" />
-      </div>
-
-      <div class="ym-property-group">
-        <label>Type</label>
-        <select data-node="biquadfilter" data-node-property="type">
-          <option value="lowpass">Lowpass</option>
-          <option value="highpass">Highpass</option>
-          <option value="bandpass">Bandpass</option>
-          <option value="lowshelf">Lowshelf</option>
-          <option value="highshelf">Highshelf</option>
-          <option value="peaking">Peaking</option>
-          <option value="notch">Notch</option>
-          <option value="allpass">Allpass</option>
-        </select>
-      </div>
-    </div>
-
-
-    <div class="ym-node-group" data-node-group="compressor">
-      <div class="ym-property-group">
-        <label>Threshold</label>
-        <input type="range" min="10" max="1000" value="350" step="1" data-node="compressor" data-node-property="threshold" />
-      </div>
-
-      <div class="ym-property-group">
-        <label>Knee</label>
-        <input type="range" min="0" max="40" value="40" step="1" data-node="compressor" data-node-property="knee" />
-      </div>
-
-      <div class="ym-property-group">
-        <label>Ratio</label>
-        <input type="range" min="1" max="20" value="12" step="1" data-node="compressor" data-node-property="ratio" />
-
-      </div>
-
-      <div class="ym-property-group">
-        <label>Reduction</label>
-        <input type="range" min="-20" max="0" value="-20" step="1" data-node="compressor" data-node-property="reduction" />
-      </div>
-
-      <div class="ym-property-group">
-        <label>Attack</label>
-        <input type="range" min="0" max="1" value="0" step="0.01" data-node="compressor" data-node-property="attack" />
-      </div>
-
-      <div class="ym-property-group">
-        <label>Release</label>
-        <input type="range" min="0" max="1" value="0.25" step="0.01" data-node="compressor" data-node-property="release" />
-      </div>
+    <div class="ym-property-group">
+      <label>Oversample</label>
+      <select data-node="distortion" data-node-property="oversample">
+        <option value="none">none</option>
+        <option value="2x">2x</option>
+        <option value="4x">4x</option>
+      </select>
     </div>
   </div>
-  
+
+  <div class="ym-node-group" data-node-group="oscillator">
+    <div class="ym-property-group">
+      <label>Frequency</label>
+      <input type="range" min="10" max="5000" value="350" step="10" data-node="oscillator" data-node-property="frequency" />
+    </div>
+
+    <div class="ym-property-group">
+      <label>Detune</label>
+      <input type="range" min="0" max="100" value="100" step="1" data-node="oscillator" data-node-property="detune" />
+    </div>
+
+    <div class="ym-property-group">
+      <label>Q</label>
+      <input type="range" min="0.0001" max="1000" value="-50" step="1" data-node="oscillator" data-node-property="Q" />
+    </div>
+
+    <div class="ym-property-group">
+      <label>Type</label>
+      <select data-node="oscillator" data-node-property="type">
+        <option value="sine">Sine</option>
+        <option value="square">Sqaure</option>
+        <option value="sawtooth">Sawtooth</option>
+        <option value="triangle">Triangle</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="ym-node-group" data-node-group="biquadfilter">
+    <div class="ym-property-group">
+      <label>Frequency</label>
+      <input type="range" min="10" max="5000" value="50" step="10" data-node="biquadfilter" data-node-property="frequency" />
+    </div>
+
+    <div class="ym-property-group">
+      <label>Detune</label>
+      <input type="range" min="0" max="100" value="100" step="1" data-node="biquadfilter" data-node-property="detune" />
+    </div>
+
+    <div class="ym-property-group">
+      <label>Q</label>
+      <input type="range" min="0.0001" max="1000" value="-50" step="1" data-node="biquadfilter" data-node-property="Q" />
+    </div>
+
+    <div class="ym-property-group">
+      <label>Type</label>
+      <select data-node="biquadfilter" data-node-property="type">
+        <option value="lowpass">Lowpass</option>
+        <option value="highpass">Highpass</option>
+        <option value="bandpass">Bandpass</option>
+        <option value="lowshelf">Lowshelf</option>
+        <option value="highshelf">Highshelf</option>
+        <option value="peaking">Peaking</option>
+        <option value="notch">Notch</option>
+        <option value="allpass">Allpass</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="ym-node-group" data-node-group="compressor">
+    <div class="ym-property-group">
+      <label>Threshold</label>
+      <input type="range" min="10" max="1000" value="350" step="1" data-node="compressor" data-node-property="threshold" />
+    </div>
+
+    <div class="ym-property-group">
+      <label>Knee</label>
+      <input type="range" min="0" max="40" value="40" step="1" data-node="compressor" data-node-property="knee" />
+    </div>
+
+    <div class="ym-property-group">
+      <label>Ratio</label>
+      <input type="range" min="1" max="20" value="12" step="1" data-node="compressor" data-node-property="ratio" />
+
+    </div>
+
+    <div class="ym-property-group">
+      <label>Reduction</label>
+      <input type="range" min="-20" max="0" value="-20" step="1" data-node="compressor" data-node-property="reduction" />
+    </div>
+
+    <div class="ym-property-group">
+      <label>Attack</label>
+      <input type="range" min="0" max="1" value="0" step="0.01" data-node="compressor" data-node-property="attack" />
+    </div>
+
+    <div class="ym-property-group">
+      <label>Release</label>
+      <input type="range" min="0" max="1" value="0.25" step="0.01" data-node="compressor" data-node-property="release" />
+    </div>
+  </div>
+
 </div>
