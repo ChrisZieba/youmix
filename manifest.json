@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "youmix",
-  "description": "Inject extra controls into youtube videos for audio mixing",
+  "description": "Chrome extension for adding audio effects to YouTube videos",
   "content_scripts": [{
       "js": [
         "lib/jquery.min.js",
