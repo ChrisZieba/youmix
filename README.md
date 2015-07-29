@@ -13,8 +13,8 @@ This is a Google chrome extension to add audio filters to youtube videos. **Why?
 ## TODO
 
 - More audio node filters
-- Add node chaining
-- So much!
+- Add node chaining for enhanced effects
+- Lots of other stuff
 
 ## LICENSE
 
