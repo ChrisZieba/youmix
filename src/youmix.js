@@ -64,6 +64,9 @@ $(document).ready(function() {
     var node = $(this).data('node');
     var property = $(this).data('node-property');
 
+    // Update the output value
+    $(this).prev('.ym-property-output').html(value);
+
     switch (node) {
       case 'biquadfilter':
         if (property === 'type') {
@@ -106,6 +109,7 @@ $(document).ready(function() {
         biquadFilter.frequency.value = 50;
         biquadFilter.detune.value = 100;
         biquadFilter.Q.value = 10;
+        biquadFilter.gain.value = 1;
 
         // Connect to output
         biquadFilter.connect(context.destination);

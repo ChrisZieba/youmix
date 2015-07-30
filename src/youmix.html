@@ -14,6 +14,7 @@
   <div class="ym-node-group" data-node-group="distortion">
     <div class="ym-property-group">
       <label>Amount</label>
+      <div class="ym-property-output">50</div>
       <input type="range" min="1" max="10000" value="50" step="10" data-node="distortion" data-node-property="amount" />
     </div>
 
@@ -30,17 +31,26 @@
   <div class="ym-node-group" data-node-group="biquadfilter">
     <div class="ym-property-group">
       <label>Frequency</label>
+      <div class="ym-property-output">50</div>
       <input type="range" min="10" max="5000" value="50" step="10" data-node="biquadfilter" data-node-property="frequency" />
     </div>
 
     <div class="ym-property-group">
       <label>Detune</label>
+      <div class="ym-property-output">100</div>
       <input type="range" min="0" max="100" value="100" step="1" data-node="biquadfilter" data-node-property="detune" />
     </div>
 
     <div class="ym-property-group">
       <label>Q</label>
+      <div class="ym-property-output">10</div>
       <input type="range" min="0.0001" max="1000" value="10" step="1" data-node="biquadfilter" data-node-property="Q" />
+    </div>
+
+    <div class="ym-property-group">
+      <label>Gain</label>
+      <div class="ym-property-output">1</div>
+      <input type="range" min="-40" max="40" value="1" step="1" data-node="biquadfilter" data-node-property="gain" />
     </div>
 
     <div class="ym-property-group">
@@ -62,32 +72,37 @@
   <div class="ym-node-group" data-node-group="compressor">
     <div class="ym-property-group">
       <label>Threshold</label>
+      <div class="ym-property-output">-50</div>
       <input type="range" min="-100" max="100" value="-50" step="1" data-node="compressor" data-node-property="threshold" />
     </div>
 
     <div class="ym-property-group">
       <label>Knee</label>
+      <div class="ym-property-output">40</div>
       <input type="range" min="0" max="40" value="40" step="1" data-node="compressor" data-node-property="knee" />
     </div>
 
     <div class="ym-property-group">
       <label>Ratio</label>
+      <div class="ym-property-output">12</div>
       <input type="range" min="1" max="20" value="12" step="1" data-node="compressor" data-node-property="ratio" />
-
     </div>
 
     <div class="ym-property-group">
       <label>Reduction</label>
+      <div class="ym-property-output">-20</div>
       <input type="range" min="-20" max="0" value="-20" step="1" data-node="compressor" data-node-property="reduction" />
     </div>
 
     <div class="ym-property-group">
       <label>Attack</label>
+      <div class="ym-property-output">0.003</div>
       <input type="range" min="0" max="1" value="0.003" step="0.001" data-node="compressor" data-node-property="attack" />
     </div>
 
     <div class="ym-property-group">
       <label>Release</label>
+      <div class="ym-property-output">0.25</div>
       <input type="range" min="0" max="1" value="0.25" step="0.01" data-node="compressor" data-node-property="release" />
     </div>
   </div>
