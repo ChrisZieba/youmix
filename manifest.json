@@ -1,7 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "youmix",
+  "name": "YouMix",
+  "short_name": "youmix",
   "description": "Chrome extension for adding audio effects to YouTube videos",
+  "homepage_url": "https://github.com/ChrisZieba/youmix",
   "content_scripts": [{
       "js": [
         "lib/jquery.min.js",
@@ -16,7 +18,7 @@
         "*://www.youtube.com/*"
       ]
   }],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "web_accessible_resources": [
     "src/youmix.html"
   ],
