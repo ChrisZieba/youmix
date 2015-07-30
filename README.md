@@ -1,6 +1,6 @@
 # YouMix
 
-YouMix is a Google Chrome extension to add audio filters to youtube videos. **Why?** If you listen to a lot of music through YouTube, every now and then you may wonder what certain songs sound like with filters applied. It's a fun extenstion if you're interested in getting a different perpective from a song. The extension loads in any [YouTube](https://youtube.com) page with an HTML5 video player in the DOM.
+YouMix is a Google Chrome extension to add audio filters to YouTube videos. **Why?** If you listen to a lot of music through YouTube, every now and then you may wonder what certain songs sound like with filters applied. It's a fun extenstion if you're interested in getting a different perpective from a song. The extension loads in any [YouTube](https://youtube.com) page with an HTML5 video player in the DOM.
 
 ## Screenshots
 
