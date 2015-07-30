@@ -92,6 +92,9 @@ $(document).ready(function() {
     }
   });
 
+  /* 
+    Hanldes the updated options and initializes the filters.
+  */
   function presets(preset) {
     source.disconnect();
 
@@ -116,10 +119,7 @@ $(document).ready(function() {
         break;
 
       /*
-        The DynamicsCompressorNode interface provides a compression effect, 
-        which lowers the volume of the loudest parts of the signal in order to 
-        help prevent clipping and distortion that can occur when multiple sounds
-        are played and multiplexed together at once. 
+        The DynamicsCompressorNode interface provides a compression effect.
       */
       case 'compressor':
         // Connect the source node to the destination
