@@ -78,10 +78,6 @@ $(document).ready(function() {
         compressor[property].value = value;
         break;
 
-      case 'oscillator':
-        oscillator[property].value = value;
-        break;
-
       case 'distortion':
         if (property === 'amount') {
           value = parseInt(value, 10);
@@ -135,21 +131,6 @@ $(document).ready(function() {
 
         // Connect to output
         compressor.connect(context.destination);
-        break;
-
-      case 'oscillator':
-        source.connect(oscillator);
-        oscillator.type = 'sine';
-
-        // Value in hertz
-        oscillator.frequency.value = 2;
-        //oscillator.start();
-
-        // Connect to output
-        oscillator.connect(context.destination);
-
-        oscillator.start();
-
         break;
 
       /*
