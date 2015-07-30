@@ -88,26 +88,25 @@ $(document).ready(function() {
         } else if (property === 'oversample') {
           distortion.oversample = value;
         }
+
         break;
     }
   });
 
   /* 
     Hanldes the updated options and initializes the filters.
+    TODO: Read in the values directly from the inputs.
   */
   function presets(preset) {
     source.disconnect();
 
     switch (preset) {
-      case 'normal':
-        source.connect(context.destination);
-        break;
-
       /* 
         The BiquadFilterNode interface represents a simple low-order filter. 
       */
       case 'biquadfilter':
         source.connect(biquadFilter);
+
         biquadFilter.type = "lowpass";
         biquadFilter.frequency.value = 50;
         biquadFilter.detune.value = 100;
@@ -150,6 +149,11 @@ $(document).ready(function() {
 
         // Connect to output
         distortion.connect(context.destination);
+        break;
+
+      default:
+        // Back to normal
+        source.connect(context.destination);
         break;
     }
   }
