@@ -4,6 +4,10 @@ YouMix is a Google Chrome extension to add audio filters to youtube videos. **Wh
 
 ## Screenshots
 
+![YouMix](https://raw.githubusercontent.com/ChrisZieba/youmix/master/screenshots/youmix4.png)  
+
+![YouMix](https://raw.githubusercontent.com/ChrisZieba/youmix/master/screenshots/youmix2.png)
+
 ### Presets
 - Biquad Filter
  - The [BiquadFilterNode](https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode) interface represents a simple low-order filter.
