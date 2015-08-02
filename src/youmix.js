@@ -121,7 +121,6 @@ $(document).ready(function() {
         The DynamicsCompressorNode interface provides a compression effect.
       */
       case 'compressor':
-        // Connect the source node to the destination
         source.connect(compressor);
 
         // These are the default values
@@ -140,7 +139,6 @@ $(document).ready(function() {
         The WaveShaperNode interface represents a non-linear distorter.
       */
       case 'distortion':
-        // Connect the source node to the destination
         source.connect(distortion);
 
         // These are the default values
